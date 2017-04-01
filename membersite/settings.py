@@ -137,8 +137,8 @@ LOGIN_REDIRECT_URL = '/'
 #BASE_DIR = '/templates/blog/base.html/'
 #LOGIN_URL = '/blog/base.html/'
 #LOGIN_URL = '/account/login/'
-#LOGIN_URL = '/account/'
-LOGIN_URL = '/'
+LOGIN_URL = '/account/'
+#LOGIN_URL = '/'
 LOGIN_EXEMPT_URL = (
     r'^account/logout/$',
     r'^account/register/$'
