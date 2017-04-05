@@ -21,7 +21,7 @@ class LoginRequiredMiddleware:
 		return response
 	def process_view(self, request, view_func, view_args, view_kward):
 		assert hasattr(request, 'user')
-		path = request.path_info.lstrip('/ /')
+		path = request.path_info.lstrip('/')
 		print(path)
 
 		if not request.user.is_authenticated():

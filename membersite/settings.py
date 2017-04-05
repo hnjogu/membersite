@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'membersite.middleware.LoginRequiredMiddleware',
+    #'membersite.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'membersite.urls'
@@ -136,8 +136,8 @@ LOGIN_REDIRECT_URL = '/'
 #BASE_REDIRECT_URL = '/account/'
 #BASE_DIR = '/templates/blog/base.html/'
 #LOGIN_URL = '/blog/base.html/'
-#LOGIN_URL = '/account/login/'
-LOGIN_URL = '/account/'
+LOGIN_URL = '/account/login/'
+#LOGIN_URL = '/account/'
 #LOGIN_URL = '/'
 LOGIN_EXEMPT_URL = (
     r'^account/logout/$',
