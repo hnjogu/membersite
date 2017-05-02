@@ -1,0 +1,20 @@
+{% block content %}
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="sidebar-nav">
+      {% block sidebar %}
+      <ul class="sidebar-nav navbar-left">
+          <li><a href="">Create a group</a></li>
+          <li><a href="">Join a conversation</a></li>
+          <li><a href="">more</a></li>
+      </ul>
+      </div>
+      <div class="col-sm-10 ">
+      {% endblock %}
+
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

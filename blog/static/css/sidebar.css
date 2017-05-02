@@ -1,0 +1,17 @@
+/* The navigation menu links */
+        /* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+
+}
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    list-style: none;
+}

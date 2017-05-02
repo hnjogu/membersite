@@ -1,6 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <div class="container">
+        {% if user.is_authenticated %}
+            {% include "includes/sidebar.html" %}
+        {% endif %}
+    </div>    
     {% for post in posts %}
     <div class='container'>
     <div class='span10 main'>
@@ -13,8 +18,7 @@
                 </div>
                 <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
                 <p>{{ post.text|linebreaksbr }}</p>
-                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>                
             </div>
         </article>
         </div>
@@ -22,4 +26,13 @@
     </div>
     </div>
     {% endfor %}
+    <!--chatting region -->  
+    <div class="container">
+        {% include "main/online.html" %}  
+    </div>
+    <!--footer region -->    
+    <div class="footer">
+        {% include "includes/footer.html" %}    
+    </div> 
+
 {% endblock content %}

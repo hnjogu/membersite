@@ -1,55 +1,60 @@
-#myFooter {
-	background-color: #373a48;
-	color:white;
+
+/*footer css . */
+footer {
+    background-color: #2A1FAA;
+    color:white;
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
 }
 
-#myFooter .footer-copyright{
-	background-color: #383737;
-	padding-top:3px;
-	padding-bottom:3px;
-	text-align: center;
+footer .footer-copyright{
+    background-color: #383737;
+    padding-top:3px;
+    padding-bottom:3px;
+    text-align: center;
 }
 
-#myFooter .footer-copyright p{
-	margin:10px;
-	color: #ccc;
+footer .footer-copyright p{
+    margin:10px;
+    color: #ccc;
 }
 
-#myFooter ul{
-	list-style-type: none;
+footer ul{
+    list-style-type: none;
     padding-left: 0;
     line-height: 1.7;
 
 }
 
-#myFooter h5{
-	font-size: 18px;
+footer h5{
+    font-size: 18px;
     color: white;
     font-weight: bold;
     margin-top: 30px;
 }
 
-#myFooter a{
-	color:#d2d1d1;
-	text-decoration: none;
+footer a{
+    color:#d2d1d1;
+    text-decoration: none;
 }
 
-#myFooter a:hover, #myFooter a:focus{
-	text-decoration: none;
-	color:white;
+footer a:hover, footer a:focus{
+    text-decoration: none;
+    color:white;
 }
 
-#myFooter .myCols{
-	text-align: center;
+footer .myCols{
+    text-align: center;
 }
 
-#myFooter .social-networks{
-	text-align: center;
-	padding-top: 30px;
-	padding-bottom: 38px;
+footer .social-networks{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 38px;
 }
 
-#myFooter .social-networks a{
+footer .social-networks a{
     font-size: 32px;
     margin-right: 5px;
     margin-left: 5px;
@@ -58,54 +63,34 @@
     transition: 0.2s;
 }
 
-#myFooter .social-networks a:hover{
-	text-decoration: none;
+footer .social-networks a:hover{
+    text-decoration: none;
 
 }
 
-#myFooter .facebook:hover{
-	color:#0077e2;
+footer .facebook:hover{
+    color:#0077e2;
 }
 
-#myFooter .google:hover{
-	color:#ef1a1a;
+footer .google:hover{
+    color:#ef1a1a;
 }
 
-#myFooter .twitter:hover{
-	color: #00aced;
+footer .twitter:hover{
+    color: #00aced;
 }
 
 @media screen and (max-width: 767px){
-	#myFooter {
-		text-align: center;
-	}
+    footer {
+        text-align: center;
+    }
 }
 
 
 
 /* CSS used for positioning the footers at the bottom of the page. */
 /* You can remove this. */
-
-
-html{
-	height: 100% !important;
-}
-
-body{
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    height: 100%;
-}
-
-.content{
-	flex: 1 0 auto;
-	-webkit-flex: 1 0 auto;
-	min-height: 200px;
-}
-
-#myFooter{
-	flex: 0 0 auto;
+footer{
+    flex: 0 0 auto;
     -webkit-flex: 0 0 auto;
 }
