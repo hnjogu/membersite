@@ -39,5 +39,15 @@ class Comment(models.Model):
     class Meta:
         unique_together = ["text"]
         ordering = ["created_date"]
-        
-    
+     
+class Message(models.Model):
+    user = models.ForeignKey('User')
+    text = models.CharField(max_length=255)  
+    created_date = models.DateTimeField(
+        default=timezone.now)
+
+    def __str__(self):
+        return self.text 
+    class Meta:
+        unique_together = ["text"]
+        ordering = ["created_date"]

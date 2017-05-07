@@ -35,5 +35,6 @@ urlpatterns = [
     url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'', include('blog.urls')),
     url(r'^account/', include('blog.urls')),
+    url(r'^node_api$', 'blog.views.node_api', name='node_api'),
 
 ]

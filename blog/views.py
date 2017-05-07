@@ -15,6 +15,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+import redis
 
 
 def post_list(request):
@@ -143,3 +144,27 @@ def change_password(request):
 
         args = {'form': form}
         return render(request, 'registration/change_password.html', args)
+
+@login_required
+def home(request):
+    Message = Message.objects.select_related().all()[0:100]
+    return render(request, 'main/online_log.html', locals())
+
+@csrf_exempt
+def node_api(request):
+    try:
+        #Get User from sessionid
+        session = Session.objects.get(session_key=request.POST.get('sessionid'))
+        user_id = session.get_decoded().get('_auth_user_id')
+        user = User.objects.get(id=user_id)
+
+        #Create message
+        Comments.objects.create(user=user, text=request.POST.get('message'))
+        
+        #Once message has been created post it to the chat channel
+        r = redis.StrictRedis(host='localhost', port=6379, db=0)
+        r.publish('chat', user.username + ': ' + request.POST.get('message'))
+        
+        return HttpResponse("Everything worked :)")
+    except Exception, e:
+        return HttpResponseServerError(str(e))
