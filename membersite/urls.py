@@ -27,14 +27,14 @@ urlpatterns = [
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views
+from blog import views as blog_views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-
     url(r'^accounts/login/$', views.login, name='login'),
     url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'', include('blog.urls')),
     url(r'^account/', include('blog.urls')),
-    url(r'^node_api$', 'blog.views.node_api', name='node_api'),
+    url(r'^node_api$', 'blog.views.node_api', name='node_api')   
 
 ]

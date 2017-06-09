@@ -9,14 +9,14 @@
         console.log("connect");
       });
       
-      var entry_el = $('#comment');
+      var entry_el = $('#sms');
                
       socket.on('message', function(message) {
         //Escape HTML characters
         var data = message.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
         
         //Append message to the bottom of the list
-        $('#comments').append('<li>' + data + '</li>');
+        $('#sms').append('<li>' + data + '</li>');
         window.scrollBy(0, 10000000000);
         entry_el.focus();
       });
@@ -37,12 +37,12 @@
     });
   </script>
   <div class="panel-body"></div>
-    <ul id="comments">
-        {% for comment in comments %}
-            <li>{{comment.user}}: {{comment.text}}</li>
+    <ul id="sms">
+        {% for sms in sms %}
+            <li>{{sms.user}}: {{sms.text}}</li>
         {% endfor %}
     </ul>
   </div>
-    <input type="text" id="comment" name="comment" />
+    <input type="text" id="sms" name="sms" />
 </div>
 </div>

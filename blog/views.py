@@ -16,6 +16,7 @@ from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 import redis
+from django.views.decorators.csrf import csrf_exempt
 
 
 def post_list(request):
@@ -147,7 +148,7 @@ def change_password(request):
 
 @login_required
 def home(request):
-    Message = Message.objects.select_related().all()[0:100]
+    sms = Sms.objects.select_related().all()[0:100]
     return render(request, 'main/online_log.html', locals())
 
 @csrf_exempt
@@ -158,12 +159,12 @@ def node_api(request):
         user_id = session.get_decoded().get('_auth_user_id')
         user = User.objects.get(id=user_id)
 
-        #Create message
-        Comments.objects.create(user=user, text=request.POST.get('message'))
+        #Create sms
+        Sms.objects.create(user=user, text=request.POST.get('sms'))
         
-        #Once message has been created post it to the chat channel
+        #Once sms has been created post it to the chat channel
         r = redis.StrictRedis(host='localhost', port=6379, db=0)
-        r.publish('chat', user.username + ': ' + request.POST.get('message'))
+        r.publish('chat', user.username + ': ' + request.POST.get('sms'))
         
         return HttpResponse("Everything worked :)")
     except Exception, e:

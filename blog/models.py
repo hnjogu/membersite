@@ -40,8 +40,8 @@ class Comment(models.Model):
         unique_together = ["text"]
         ordering = ["created_date"]
      
-class Message(models.Model):
-    user = models.ForeignKey('User')
+class Sms(models.Model):
+    user = models.ForeignKey('blog.User')
     text = models.CharField(max_length=255)  
     created_date = models.DateTimeField(
         default=timezone.now)
